@@ -4,6 +4,7 @@ import { publicLinks } from './data/navbarPublicLinks';
 import { adminLinks } from './data/navbarAdminLinks';
 import Navbar from './components/organisms/Navbar';
 import { appRoutes } from './routes/config';
+import ProtectedRoute from './routes/ProtectedRoute';
 
 function Layout() {
   const location = useLocation();
@@ -28,8 +29,16 @@ function Layout() {
           }
         >
           <Routes>
-            {appRoutes.map(({ path, element }) => (
-              <Route key={path} path={path} element={element} />
+            {appRoutes.map(({ path, element, isAdmin }) => (
+              <Route
+                key={path}
+                path={path}
+                element={
+                  <ProtectedRoute isAdmin={isAdmin}>
+                    {element}
+                  </ProtectedRoute>
+                }
+              />
             ))}
           </Routes>
         </Suspense>

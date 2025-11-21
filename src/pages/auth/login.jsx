@@ -27,7 +27,7 @@ const Login = () => {
 
         try {
             const response = await UsuarioService.login(form);
-            const usuario = response.data; // YA ES EL USUARIO COMPLETO
+            const usuario = response.data;
 
             // GUARDA SOLO user (SIN token)
             localStorage.setItem('user', JSON.stringify({
@@ -45,13 +45,11 @@ const Login = () => {
 
             generarMensaje(`¡Bienvenido ${usuario.nombre}!`, 'success');
 
-            setTimeout(() => {
-                if (usuario.rol.id === 1 || usuario.rol.id === 2) {
-                    navigate('/admin/dashboard');
-                } else {
-                    navigate('/');
-                }
-            }, 1500);
+            if (usuario.rol.id === 1 || usuario.rol.id === 2) {
+                navigate('/admin/dashboard');
+            } else {
+                navigate('/');
+            }
 
         } catch (error) {
             const msg = error.response?.data || 'Credenciales inválidas';

@@ -1,14 +1,15 @@
 
 import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
 
 function Navbar({ links, title }) {
 	const [isOpen, setIsOpen] = useState(false);
 	const navigate = useNavigate();
+	const { logout } = useAuth();
 
 	const handleLogout = () => {
-		localStorage.removeItem('token');
-		localStorage.removeItem('user');
+		logout();
 		navigate('/login');
 		setIsOpen(false);
 	};
