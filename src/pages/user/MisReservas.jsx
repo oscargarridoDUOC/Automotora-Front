@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import ReservasService from '../../services/ReservasService';
 import ReservaCard from '../../components/molecules/ReservaCard';
+import Text from '../../components/atoms/Text';
+import Button from '../../components/atoms/Button';
 
 const MisReservas = () => {
     const navigate = useNavigate();
@@ -65,8 +67,8 @@ const MisReservas = () => {
             {/* Header */}
             <div className="bg-black text-white py-12">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h1 className="text-4xl font-bold mb-2">Mis Reservas</h1>
-                    <p className="text-zinc-400">Gestiona todas tus reservas de vehículos</p>
+                    <Text variant="h1" className="text-4xl font-bold mb-2">Mis Reservas</Text>
+                    <Text variant="p" className="text-zinc-400">Gestiona todas tus reservas de vehículos</Text>
                 </div>
             </div>
 
@@ -74,24 +76,24 @@ const MisReservas = () => {
                 {/* Stats Cards */}
                 <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
                     <div className="p-4 rounded-xl border-2 bg-white text-zinc-900 border-zinc-200">
-                        <p className="text-2xl font-bold">{counts.total}</p>
-                        <p className="text-sm text-zinc-600">Total</p>
+                        <Text variant="p" className="text-2xl font-bold">{counts.total}</Text>
+                        <Text variant="p" className="text-sm text-zinc-600">Total</Text>
                     </div>
                     <div className="p-4 rounded-xl border-2 bg-white text-zinc-900 border-zinc-200">
-                        <p className="text-2xl font-bold">{counts.pendiente}</p>
-                        <p className="text-sm text-zinc-600">Pendiente</p>
+                        <Text variant="p" className="text-2xl font-bold">{counts.pendiente}</Text>
+                        <Text variant="p" className="text-sm text-zinc-600">Pendiente</Text>
                     </div>
                     <div className="p-4 rounded-xl border-2 bg-white text-zinc-900 border-zinc-200">
-                        <p className="text-2xl font-bold">{counts.confirmada}</p>
-                        <p className="text-sm text-zinc-600">Confirmada</p>
+                        <Text variant="p" className="text-2xl font-bold">{counts.confirmada}</Text>
+                        <Text variant="p" className="text-sm text-zinc-600">Confirmada</Text>
                     </div>
                     <div className="p-4 rounded-xl border-2 bg-white text-zinc-900 border-zinc-200">
-                        <p className="text-2xl font-bold">{counts.cancelada}</p>
-                        <p className="text-sm text-zinc-600">Cancelada</p>
+                        <Text variant="p" className="text-2xl font-bold">{counts.cancelada}</Text>
+                        <Text variant="p" className="text-sm text-zinc-600">Cancelada</Text>
                     </div>
                     <div className="p-4 rounded-xl border-2 bg-white text-zinc-900 border-zinc-200">
-                        <p className="text-2xl font-bold">{counts.completada}</p>
-                        <p className="text-sm text-zinc-600">Completada</p>
+                        <Text variant="p" className="text-2xl font-bold">{counts.completada}</Text>
+                        <Text variant="p" className="text-sm text-zinc-600">Completada</Text>
                     </div>
                 </div>
 
@@ -102,18 +104,18 @@ const MisReservas = () => {
                         <svg className="w-24 h-24 mx-auto text-zinc-300 mb-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                         </svg>
-                        <h3 className="text-2xl font-bold text-zinc-900 mb-2">
+                        <Text variant="h3" className="text-2xl font-bold text-zinc-900 mb-2">
                             No tienes reservas aún
-                        </h3>
-                        <p className="text-zinc-500 mb-6">
+                        </Text>
+                        <Text variant="p" className="text-zinc-500 mb-6">
                             Explora nuestro catálogo y reserva tu vehículo ideal
-                        </p>
-                        <button
+                        </Text>
+                        <Button
                             onClick={() => navigate('/')}
                             className="px-6 py-3 bg-black text-white rounded-lg font-medium hover:opacity-90 transition-opacity"
                         >
                             Ver Catálogo
-                        </button>
+                        </Button>
                     </div>
                 ) : (
                     <div className="space-y-6">

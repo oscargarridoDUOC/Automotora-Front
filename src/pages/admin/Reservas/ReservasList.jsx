@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import ReservasService from '../../../services/ReservasService';
 import EstadosReservaService from '../../../services/EstadosReservaService';
 import { generarMensaje } from '../../../utils/GenerarMensaje';
+import Text from '../../../components/atoms/Text';
+import Button from '../../../components/atoms/Button';
 
 const ReservasList = () => {
     const [reservas, setReservas] = useState([]);
@@ -81,26 +83,26 @@ const ReservasList = () => {
 
 
 
-    if (loading) return <div className="p-8 text-center">Cargando...</div>;
+    if (loading) return <div className="p-8 text-center"><Text variant="p">Cargando...</Text></div>;
 
     return (
         <div className="p-6">
             <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl font-bold text-gray-800">Gestión de Reservas</h2>
+                <Text variant="h2" className="text-2xl font-bold text-gray-800">Gestión de Reservas</Text>
             </div>
 
 
             <div className="mb-6 grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div className="bg-white p-4 rounded-lg border border-gray-200">
-                    <p className="text-sm text-gray-500">Total</p>
-                    <p className="text-2xl font-bold text-gray-900">{reservas.length}</p>
+                    <Text variant="p" className="text-sm text-gray-500">Total</Text>
+                    <Text variant="p" className="text-2xl font-bold text-gray-900">{reservas.length}</Text>
                 </div>
                 {estados.map(estado => {
                     const count = reservas.filter(r => r.estado?.id === estado.id).length;
                     return (
                         <div key={estado.id} className="bg-white p-4 rounded-lg border border-gray-200">
-                            <p className="text-sm text-gray-500">{estado.estado}</p>
-                            <p className="text-2xl font-bold text-gray-900">{count}</p>
+                            <Text variant="p" className="text-sm text-gray-500">{estado.estado}</Text>
+                            <Text variant="p" className="text-2xl font-bold text-gray-900">{count}</Text>
                         </div>
                     );
                 })}
@@ -111,14 +113,14 @@ const ReservasList = () => {
                     <table className="w-full text-left">
                         <thead className="bg-gray-50 border-b border-gray-100">
                             <tr>
-                                <th className="p-4 font-semibold text-gray-600">ID</th>
-                                <th className="p-4 font-semibold text-gray-600">Usuario</th>
-                                <th className="p-4 font-semibold text-gray-600">Vehículo</th>
-                                <th className="p-4 font-semibold text-gray-600">F. Reserva</th>
-                                <th className="p-4 font-semibold text-gray-600">F. Entrega</th>
-                                <th className="p-4 font-semibold text-gray-600">Precio</th>
-                                <th className="p-4 font-semibold text-gray-600">Estado</th>
-                                <th className="p-4 font-semibold text-gray-600">Acciones</th>
+                                <th className="p-4 font-semibold text-gray-600"><Text variant="span">ID</Text></th>
+                                <th className="p-4 font-semibold text-gray-600"><Text variant="span">Usuario</Text></th>
+                                <th className="p-4 font-semibold text-gray-600"><Text variant="span">Vehículo</Text></th>
+                                <th className="p-4 font-semibold text-gray-600"><Text variant="span">F. Reserva</Text></th>
+                                <th className="p-4 font-semibold text-gray-600"><Text variant="span">F. Entrega</Text></th>
+                                <th className="p-4 font-semibold text-gray-600"><Text variant="span">Precio</Text></th>
+                                <th className="p-4 font-semibold text-gray-600"><Text variant="span">Estado</Text></th>
+                                <th className="p-4 font-semibold text-gray-600"><Text variant="span">Acciones</Text></th>
                             </tr>
                         </thead>
                         <tbody className="divide-y divide-gray-100">
@@ -131,25 +133,25 @@ const ReservasList = () => {
                             ) : (
                                 reservas.map((reserva) => (
                                     <tr key={reserva.id} className="hover:bg-gray-50 transition-colors">
-                                        <td className="p-4 text-gray-500">#{reserva.id}</td>
+                                        <td className="p-4 text-gray-500"><Text variant="span">#{reserva.id}</Text></td>
                                         <td className="p-4">
                                             <div>
-                                                <p className="font-medium text-gray-900">{reserva.usuario?.nombre || 'N/A'}</p>
-                                                <p className="text-xs text-gray-500">{reserva.usuario?.correo || 'N/A'}</p>
+                                                <Text variant="p" className="font-medium text-gray-900">{reserva.usuario?.nombre || 'N/A'}</Text>
+                                                <Text variant="p" className="text-xs text-gray-500">{reserva.usuario?.correo || 'N/A'}</Text>
                                             </div>
                                         </td>
                                         <td className="p-4">
                                             <div>
-                                                <p className="font-medium text-gray-900">
+                                                <Text variant="p" className="font-medium text-gray-900">
                                                     {reserva.vehiculo?.marca?.nombre || ''} {reserva.vehiculo?.modelo || 'N/A'}
-                                                </p>
-                                                <p className="text-xs text-gray-500">Año: {reserva.vehiculo?.anio || 'N/A'}</p>
+                                                </Text>
+                                                <Text variant="p" className="text-xs text-gray-500">Año: {reserva.vehiculo?.anio || 'N/A'}</Text>
                                             </div>
                                         </td>
-                                        <td className="p-4 text-gray-600 text-sm">{formatDate(reserva.fechaReserva)}</td>
-                                        <td className="p-4 text-gray-600 text-sm">{formatDate(reserva.fechaEntrega)}</td>
+                                        <td className="p-4 text-gray-600 text-sm"><Text variant="span">{formatDate(reserva.fechaReserva)}</Text></td>
+                                        <td className="p-4 text-gray-600 text-sm"><Text variant="span">{formatDate(reserva.fechaEntrega)}</Text></td>
                                         <td className="p-4 font-medium text-gray-900">
-                                            ${reserva.precioReserva?.toLocaleString() || '0'}
+                                            <Text variant="span">${reserva.precioReserva?.toLocaleString() || '0'}</Text>
                                         </td>
                                         <td className="p-4">
                                             <select
@@ -165,12 +167,12 @@ const ReservasList = () => {
                                             </select>
                                         </td>
                                         <td className="p-4">
-                                            <button
+                                            <Button
                                                 onClick={() => handleDelete(reserva.id)}
-                                                className="text-red-600 hover:text-red-800 font-medium text-sm"
+                                                className="text-red-600 hover:text-red-800 font-medium text-sm bg-transparent p-0"
                                             >
                                                 Eliminar
-                                            </button>
+                                            </Button>
                                         </td>
                                     </tr>
                                 ))

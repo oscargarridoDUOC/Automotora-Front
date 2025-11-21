@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import VehiculosService from '../../services/VehiculosService';
 import VehicleCard from '../../components/molecules/VehicleCard';
 import HeroSection from '../../components/organisms/HeroSection';
+import Text from '../../components/atoms/Text';
 
 const Home = () => {
     const [vehiculos, setVehiculos] = useState([]);
@@ -39,8 +40,8 @@ const Home = () => {
             <main id="catalogo" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
                 <div className="flex justify-between items-end mb-12">
                     <div>
-                        <h2 className="text-3xl font-bold text-zinc-900">Catálogo Disponible</h2>
-                        <p className="text-zinc-500 mt-2">Explora nuestros últimos vehículos disponibles</p>
+                        <Text variant="h2" className="text-3xl font-bold text-zinc-900">Catálogo Disponible</Text>
+                        <Text variant="p" className="text-zinc-500 mt-2">Explora nuestros últimos vehículos disponibles</Text>
                     </div>
                     <div className="hidden md:flex gap-2">
                         {/* Filter buttons could go here */}
@@ -48,7 +49,7 @@ const Home = () => {
                 </div>
 
                 {error ? (
-                    <div className="text-center py-12 text-red-500">{error}</div>
+                    <div className="text-center py-12 text-red-500"><Text variant="p">{error}</Text></div>
                 ) : (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {vehiculos.map(vehiculo => (

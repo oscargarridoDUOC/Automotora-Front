@@ -3,6 +3,9 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import VehiculosService from "../../services/VehiculosService";
 import { useAuth } from '../../context/AuthContext';
 import ReservaModal from '../../components/organisms/ReservaModal';
+import Image from '../../components/atoms/Image';
+import Text from '../../components/atoms/Text';
+import Button from '../../components/atoms/Button';
 
 function VehiculoDetalle() {
     const { id } = useParams();
@@ -52,7 +55,7 @@ function VehiculoDetalle() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                     <div className="w-full">
                         <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-zinc-200 800">
-                            <img
+                            <Image
                                 src={vehiculo.imagenUrl}
                                 alt={`${vehiculo.marca?.nombre} ${vehiculo.modelo}`}
                                 className="w-full h-full object-cover"
@@ -62,41 +65,41 @@ function VehiculoDetalle() {
 
                     <div className="space-y-8">
                         <div>
-                            <h2 className="text-lg font-medium text-zinc-500 400 uppercase tracking-wider">
+                            <Text variant="h2" className="text-lg font-medium text-zinc-500 400 uppercase tracking-wider">
                                 {vehiculo.marca?.nombre}
-                            </h2>
-                            <h1 className="text-4xl md:text-5xl font-bold text-zinc-900  mt-2 tracking-tight">
+                            </Text>
+                            <Text variant="h1" className="text-4xl md:text-5xl font-bold text-zinc-900  mt-2 tracking-tight">
                                 {vehiculo.modelo}
-                            </h1>
-                            <div className="text-3xl font-bold text-zinc-900  mt-4">
+                            </Text>
+                            <Text variant="div" className="text-3xl font-bold text-zinc-900  mt-4">
                                 ${vehiculo.precio.toLocaleString()}
-                            </div>
+                            </Text>
                         </div>
 
                         <div className="grid grid-cols-2 gap-4 py-6 border-y border-zinc-200 800">
                             <div className="space-y-1">
-                                <p className="text-sm text-zinc-500 400">Año</p>
-                                <p className="text-lg font-medium text-zinc-900 ">{vehiculo.anio}</p>
+                                <Text variant="p" className="text-sm text-zinc-500 400">Año</Text>
+                                <Text variant="p" className="text-lg font-medium text-zinc-900 ">{vehiculo.anio}</Text>
                             </div>
                             <div className="space-y-1">
-                                <p className="text-sm text-zinc-500 400">Transmisión</p>
-                                <p className="text-lg font-medium text-zinc-900 ">{vehiculo.transmision?.tipo || 'N/A'}</p>
+                                <Text variant="p" className="text-sm text-zinc-500 400">Transmisión</Text>
+                                <Text variant="p" className="text-lg font-medium text-zinc-900 ">{vehiculo.transmision?.tipo || 'N/A'}</Text>
                             </div>
                             <div className="space-y-1">
-                                <p className="text-sm text-zinc-500 400">Combustible</p>
-                                <p className="text-lg font-medium text-zinc-900 ">{vehiculo.combustible?.tipo || 'N/A'}</p>
+                                <Text variant="p" className="text-sm text-zinc-500 400">Combustible</Text>
+                                <Text variant="p" className="text-lg font-medium text-zinc-900 ">{vehiculo.combustible?.tipo || 'N/A'}</Text>
                             </div>
                             <div className="space-y-1">
-                                <p className="text-sm text-zinc-500 400">Concesionario</p>
-                                <p className="text-lg font-medium text-zinc-900 ">{vehiculo.concesionario?.nombre || 'N/A'}</p>
+                                <Text variant="p" className="text-sm text-zinc-500 400">Concesionario</Text>
+                                <Text variant="p" className="text-lg font-medium text-zinc-900 ">{vehiculo.concesionario?.nombre || 'N/A'}</Text>
                             </div>
                         </div>
 
                         <div className="space-y-4">
-                            <h3 className="text-xl font-bold text-zinc-900 ">Descripción</h3>
-                            <p className="text-zinc-600 300 leading-relaxed">
+                            <Text variant="h3" className="text-xl font-bold text-zinc-900 ">Descripción</Text>
+                            <Text variant="p" className="text-zinc-600 300 leading-relaxed">
                                 {vehiculo.descripcion || `Este ${vehiculo.marca?.nombre} ${vehiculo.modelo} del año ${vehiculo.anio} es una excelente oportunidad. Cuenta con transmisión ${vehiculo.transmision?.tipo?.toLowerCase()} y motor a ${vehiculo.combustible?.tipo?.toLowerCase()}. Disponible para ver en nuestra sucursal de ${vehiculo.concesionario?.nombre}.`}
-                            </p>
+                            </Text>
                         </div>
 
                         {vehiculo.concesionario && (
@@ -108,7 +111,7 @@ function VehiculoDetalle() {
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                                         </svg>
                                         <div>
-                                            <p className="font-semibold text-zinc-900">{vehiculo.concesionario.nombre}</p>
+                                            <Text variant="p" className="font-semibold text-zinc-900">{vehiculo.concesionario.nombre}</Text>
                                         </div>
                                     </div>
                                     {vehiculo.concesionario.direccion && (
@@ -118,13 +121,13 @@ function VehiculoDetalle() {
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                                             </svg>
                                             <div>
-                                                <p className="text-zinc-700">{vehiculo.concesionario.direccion}</p>
-                                                <p className="text-sm text-zinc-500">
+                                                <Text variant="p" className="text-zinc-700">{vehiculo.concesionario.direccion}</Text>
+                                                <Text variant="p" className="text-sm text-zinc-500">
                                                     {vehiculo.concesionario.comuna?.nombre || 'N/A'}
                                                     {vehiculo.concesionario.comuna?.region?.nombre &&
                                                         `, ${vehiculo.concesionario.comuna.region.nombre}`
                                                     }
-                                                </p>
+                                                </Text>
                                             </div>
                                         </div>
                                     )}
@@ -141,7 +144,7 @@ function VehiculoDetalle() {
                                             <svg className="w-5 h-5 text-zinc-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                             </svg>
-                                            <p className="text-zinc-700">{vehiculo.concesionario.correo}</p>
+                                            <Text variant="p" className="text-zinc-700">{vehiculo.concesionario.correo}</Text>
                                         </div>
                                     )}
                                 </div>
@@ -149,15 +152,15 @@ function VehiculoDetalle() {
                         )}
 
                         <div className="pt-6">
-                            <button
+                            <Button
                                 onClick={handleReservar}
                                 className="w-full py-4 bg-black text-white rounded-full font-bold text-lg hover:opacity-90 transition-opacity shadow-lg"
                             >
                                 🚗 Reservar Ahora
-                            </button>
-                            <p className="text-xs text-zinc-500 text-center mt-3">
+                            </Button>
+                            <Text variant="p" className="text-xs text-zinc-500 text-center mt-3">
                                 Precio de reserva: $100,000
-                            </p>
+                            </Text>
                         </div>
                     </div>
                 </div>

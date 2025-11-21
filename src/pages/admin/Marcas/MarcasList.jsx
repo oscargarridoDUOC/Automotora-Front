@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import MarcasService from '../../../services/MarcasService';
 import CreateModal from '../../../components/organisms/CreateModal';
+import Text from '../../../components/atoms/Text';
+import Button from '../../../components/atoms/Button';
 
 const createInputs = [
     { name: "nombre", type: "text", placeholder: "Nombre de la Marca", required: true },
@@ -61,51 +63,53 @@ const MarcasList = () => {
         }
     };
 
-    if (loading) return <div className="p-8 text-center">Cargando...</div>;
+    if (loading) return <div className="p-8 text-center"><Text variant="p">Cargando...</Text></div>;
 
     return (
         <div className="p-6">
             <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl font-bold text-gray-800">Gestión de Marcas</h2>
-                <button
+                <Text variant="h2" className="text-2xl font-bold text-gray-800">Gestión de Marcas</Text>
+                <Button
                     onClick={() => {
                         setEditingMarca(null);
                         setIsModalOpen(true);
                     }}
-                    className="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors"
+                    className="bg-black text-white hover:bg-gray-800"
                 >
                     Nueva Marca
-                </button>
+                </Button>
             </div>
 
             <div className="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100">
                 <table className="w-full text-left">
                     <thead className="bg-gray-50 border-b border-gray-100">
                         <tr>
-                            <th className="p-4 font-semibold text-gray-600">ID</th>
-                            <th className="p-4 font-semibold text-gray-600">Nombre</th>
-                            <th className="p-4 font-semibold text-gray-600">Acciones</th>
+                            <tr>
+                                <th className="p-4 font-semibold text-gray-600"><Text variant="span">ID</Text></th>
+                                <th className="p-4 font-semibold text-gray-600"><Text variant="span">Nombre</Text></th>
+                                <th className="p-4 font-semibold text-gray-600"><Text variant="span">Acciones</Text></th>
+                            </tr>
                         </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-100">
                         {marcas.map((marca) => (
                             <tr key={marca.id} className="hover:bg-gray-50 transition-colors">
-                                <td className="p-4 text-gray-500">#{marca.id}</td>
-                                <td className="p-4 font-medium text-gray-900">{marca.nombre}</td>
+                                <td className="p-4 text-gray-500"><Text variant="span">#{marca.id}</Text></td>
+                                <td className="p-4 font-medium text-gray-900"><Text variant="span">{marca.nombre}</Text></td>
                                 <td className="p-4">
                                     <div className="flex gap-2">
-                                        <button
+                                        <Button
                                             onClick={() => handleOpenEdit(marca)}
-                                            className="text-blue-600 hover:text-blue-800 font-medium text-sm"
+                                            className="text-blue-600 hover:text-blue-800 font-medium text-sm bg-transparent p-0"
                                         >
                                             Editar
-                                        </button>
-                                        <button
+                                        </Button>
+                                        <Button
                                             onClick={() => handleDelete(marca.id)}
-                                            className="text-red-600 hover:text-red-800 font-medium text-sm"
+                                            className="text-red-600 hover:text-red-800 font-medium text-sm bg-transparent p-0"
                                         >
                                             Eliminar
-                                        </button>
+                                        </Button>
                                     </div>
                                 </td>
                             </tr>

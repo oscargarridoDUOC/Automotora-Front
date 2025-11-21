@@ -3,6 +3,8 @@ import UsuarioService from '../../../services/UsuarioService';
 import RolesService from '../../../services/RolesService';
 import CreateModal from '../../../components/organisms/CreateModal';
 import { generarMensaje } from '../../../utils/GenerarMensaje';
+import Text from '../../../components/atoms/Text';
+import Button from '../../../components/atoms/Button';
 
 const createInputs = [
     { name: "nombre", type: "text", placeholder: "Nombre", required: true },
@@ -112,33 +114,33 @@ const UsuariosList = () => {
         return 'bg-zinc-100 text-zinc-800';
     };
 
-    if (loading) return <div className="p-8 text-center">Cargando...</div>;
+    if (loading) return <div className="p-8 text-center"><Text variant="p">Cargando...</Text></div>;
 
     return (
         <div className="p-6">
             <div className="mb-6">
-                <h2 className="text-2xl font-bold text-gray-800">Gestión de Usuarios</h2>
+                <Text variant="h2" className="text-2xl font-bold text-gray-800">Gestión de Usuarios</Text>
             </div>
 
             <div className="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100">
                 <table className="w-full text-left">
                     <thead className="bg-gray-50 border-b border-gray-100">
                         <tr>
-                            <th className="p-4 font-semibold text-gray-600">ID</th>
-                            <th className="p-4 font-semibold text-gray-600">Nombre</th>
-                            <th className="p-4 font-semibold text-gray-600">RUT</th>
-                            <th className="p-4 font-semibold text-gray-600">Correo</th>
-                            <th className="p-4 font-semibold text-gray-600">Rol</th>
-                            <th className="p-4 font-semibold text-gray-600">Acciones</th>
+                            <th className="p-4 font-semibold text-gray-600"><Text variant="span">ID</Text></th>
+                            <th className="p-4 font-semibold text-gray-600"><Text variant="span">Nombre</Text></th>
+                            <th className="p-4 font-semibold text-gray-600"><Text variant="span">RUT</Text></th>
+                            <th className="p-4 font-semibold text-gray-600"><Text variant="span">Correo</Text></th>
+                            <th className="p-4 font-semibold text-gray-600"><Text variant="span">Rol</Text></th>
+                            <th className="p-4 font-semibold text-gray-600"><Text variant="span">Acciones</Text></th>
                         </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-100">
                         {usuarios.map((usuario) => (
                             <tr key={usuario.id} className="hover:bg-gray-50 transition-colors">
-                                <td className="p-4 text-gray-500">#{usuario.id}</td>
-                                <td className="p-4 font-medium text-gray-900">{usuario.nombre}</td>
-                                <td className="p-4 text-gray-600">{usuario.rut}</td>
-                                <td className="p-4 text-gray-600">{usuario.correo}</td>
+                                <td className="p-4 text-gray-500"><Text variant="span">#{usuario.id}</Text></td>
+                                <td className="p-4 font-medium text-gray-900"><Text variant="span">{usuario.nombre}</Text></td>
+                                <td className="p-4 text-gray-600"><Text variant="span">{usuario.rut}</Text></td>
+                                <td className="p-4 text-gray-600"><Text variant="span">{usuario.correo}</Text></td>
                                 <td className="p-4">
                                     <select
                                         value={usuario.rol?.id || ''}
@@ -154,18 +156,18 @@ const UsuariosList = () => {
                                 </td>
                                 <td className="p-4">
                                     <div className="flex gap-2">
-                                        <button
+                                        <Button
                                             onClick={() => handleOpenEdit(usuario)}
-                                            className="text-blue-600 hover:text-blue-800 font-medium text-sm"
+                                            className="text-blue-600 hover:text-blue-800 font-medium text-sm bg-transparent p-0"
                                         >
                                             Editar
-                                        </button>
-                                        <button
+                                        </Button>
+                                        <Button
                                             onClick={() => handleDelete(usuario.id)}
-                                            className="text-red-600 hover:text-red-800 font-medium text-sm"
+                                            className="text-red-600 hover:text-red-800 font-medium text-sm bg-transparent p-0"
                                         >
                                             Eliminar
-                                        </button>
+                                        </Button>
                                     </div>
                                 </td>
                             </tr>

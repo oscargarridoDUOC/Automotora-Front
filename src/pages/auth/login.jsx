@@ -4,6 +4,7 @@ import Forms from '../../components/templates/Forms';
 import { generarMensaje } from '../../utils/GenerarMensaje';
 import UsuarioService from '../../services/UsuarioService';
 import { useAuth } from '../../context/AuthContext';
+import Button from '../../components/atoms/Button';
 import loginData from './data/loginData';
 
 const Login = () => {
@@ -90,13 +91,13 @@ const Login = () => {
                     {
                         ...item.text[0],
                         content: (
-                            <button
+                            <Button
                                 type="button"
                                 onClick={() => navigate('/create-user')}
-                                className="text-indigo-400 hover:text-indigo-300 underline transition"
+                                className="text-indigo-400 hover:text-indigo-300 underline transition bg-transparent p-0 hover:scale-100 active:scale-100"
                             >
                                 Crear usuario
-                            </button>
+                            </Button>
                         )
                     }
                 ]

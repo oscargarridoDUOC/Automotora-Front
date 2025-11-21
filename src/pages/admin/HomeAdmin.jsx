@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Text from '../../components/atoms/Text';
 
 const DashboardCard = ({ title, description, link, icon }) => (
     <Link to={link} className="block group">
@@ -9,8 +10,8 @@ const DashboardCard = ({ title, description, link, icon }) => (
                     {icon}
                 </div>
             </div>
-            <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-black transition-colors">{title}</h3>
-            <p className="text-gray-500 text-sm">{description}</p>
+            <Text variant="h3" className="text-xl font-bold text-gray-800 mb-2 group-hover:text-black transition-colors">{title}</Text>
+            <Text variant="p" className="text-gray-500 text-sm">{description}</Text>
         </div>
     </Link>
 );
@@ -19,8 +20,8 @@ const HomeAdmin = () => {
     return (
         <div className="p-8 bg-gray-50 min-h-screen">
             <div className="max-w-7xl mx-auto">
-                <h1 className="text-3xl font-bold text-gray-900 mb-2">Panel de Administración</h1>
-                <p className="text-gray-500 mb-8">Gestiona el inventario y configuración de la automotora.</p>
+                <Text variant="h1" className="text-3xl font-bold text-gray-900 mb-2">Panel de Administración</Text>
+                <Text variant="p" className="text-gray-500 mb-8">Gestiona el inventario y configuración de la automotora.</Text>
 
                 {/* Management Cards */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
