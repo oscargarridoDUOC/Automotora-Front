@@ -7,8 +7,8 @@ class VehiculosService {
     async getAllVehiculos() {
         try {
             const response = await axios.get(BASE_URL);
-            // Inject default image into each vehicle
-            return response.data.map(v => ({ ...v, imagenUrl: DEFAULT_IMAGE }));
+            // Use backend image if available, otherwise use default
+            return response.data.map(v => ({ ...v, imagenUrl: v.imagen || DEFAULT_IMAGE }));
         } catch (error) {
             console.error('Error fetching vehiculos:', error);
             throw error;
@@ -18,7 +18,7 @@ class VehiculosService {
     async getVehiculoById(id) {
         try {
             const response = await axios.get(`${BASE_URL}/${id}`);
-            return { ...response.data, imagenUrl: DEFAULT_IMAGE };
+            return { ...response.data, imagenUrl: response.data.imagen || DEFAULT_IMAGE };
         } catch (error) {
             console.error(`Error fetching vehiculo ${id}:`, error);
             throw error;

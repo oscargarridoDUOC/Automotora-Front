@@ -21,7 +21,7 @@ function CreateModal({ isOpen, onClose, onSubmit, inputsConfig = [], title = "Cr
             }
 
             setFormData(initial);
-            setImagePreview(initialData?.logo || null);
+            setImagePreview(initialData?.logo || initialData?.imagen || null);
         }
     }, [isOpen, inputsConfig, initialData]);
 
@@ -30,14 +30,14 @@ function CreateModal({ isOpen, onClose, onSubmit, inputsConfig = [], title = "Cr
         setFormData((prev) => ({ ...prev, [name]: value }));
     };
 
-    const handleImageChange = async (e) => {
+    const handleImageChange = async (e, fieldName = 'logo') => {
         const file = e.target.files[0];
         if (!file) return;
 
         setUploadingImage(true);
         try {
             const { url, preview } = await uploadToImgBB(file);
-            setFormData((prev) => ({ ...prev, logo: url }));
+            setFormData((prev) => ({ ...prev, [fieldName]: url }));
             setImagePreview(preview);
         } catch (error) {
             alert("Error al subir imagen: " + error.message);
@@ -67,11 +67,15 @@ function CreateModal({ isOpen, onClose, onSubmit, inputsConfig = [], title = "Cr
 
                 <form onSubmit={handleSubmit} className="space-y-5">
                     {inputsConfig.map((input) => {
-                        if (input.name === "logo") {
+                        if (input.name === "logo" || input.name === "imagen") {
                             return (
-                                <div key="logo" className="space-y-2">
+                                <div key={input.name} className="space-y-2">
                                     <label className="text-sm font-medium text-gray-700">Logo</label>
-                                    <InputFile onChange={handleImageChange} disabled={uploadingImage || loading} preview={imagePreview} />
+                                    <InputFile
+                                        onChange={(e) => handleImageChange(e, input.name)}
+                                        disabled={uploadingImage || loading}
+                                        preview={imagePreview}
+                                    />
                                     {uploadingImage && (
                                         <p className="text-xs text-blue-600 flex items-center gap-1">
                                             <span className="inline-block w-3 h-3 border-2 border-blue-600 border-t-transparent rounded-full animate-spin"></span>

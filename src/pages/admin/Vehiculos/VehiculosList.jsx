@@ -10,6 +10,7 @@ const createInputs = [
     { name: "transmisionId", type: "text", placeholder: "ID Transmisión", required: true },
     { name: "combustibleId", type: "text", placeholder: "ID Combustible", required: true },
     { name: "concesionarioId", type: "text", placeholder: "ID Concesionario", required: true },
+    { name: "imagen", type: "file", placeholder: "Imagen del vehículo", required: false },
 ];
 
 const VehiculosList = () => {
@@ -45,7 +46,8 @@ const VehiculosList = () => {
                 marca: { id: parseInt(formData.marcaId) },
                 transmision: { id: parseInt(formData.transmisionId) },
                 combustible: { id: parseInt(formData.combustibleId) },
-                concesionario: { id: parseInt(formData.concesionarioId) }
+                concesionario: { id: parseInt(formData.concesionarioId) },
+                imagen: formData.imagen || null
             };
             console.log('Payload to send:', payload);
 
@@ -72,7 +74,8 @@ const VehiculosList = () => {
             marcaId: vehiculo.marca?.id,
             transmisionId: vehiculo.transmision?.id,
             combustibleId: vehiculo.combustible?.id,
-            concesionarioId: vehiculo.concesionario?.id
+            concesionarioId: vehiculo.concesionario?.id,
+            imagen: vehiculo.imagen
         });
         setIsModalOpen(true);
     };
