@@ -45,9 +45,9 @@ const VehicleCard = ({ vehicle }) => {
                     <div className="text-2xl font-bold text-zinc-900 dark:text-white">
                         ${vehicle.precio.toLocaleString()}
                     </div>
-                    <button className="px-4 py-2 bg-black dark:bg-white text-white dark:text-black rounded-lg font-medium hover:opacity-90 transition-opacity">
+                    <Link to={`/vehiculo/${vehicle.id}`} className="px-4 py-2 bg-black dark:bg-white text-white dark:text-black rounded-lg font-medium hover:opacity-90 transition-opacity">
                         Ver Detalles
-                    </button>
+                    </Link>
                 </div>
             </div>
         </div>

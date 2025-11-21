@@ -11,11 +11,14 @@ const VehiculosList = lazy(() => import('../pages/admin/Vehiculos/VehiculosList'
 const MarcasList = lazy(() => import('../pages/admin/Marcas/MarcasList'));
 const ConcesionariosList = lazy(() => import('../pages/admin/Concesionarios/ConcesionariosList'));
 
+const VehiculoDetalle = lazy(() => import('../pages/user/VehiculoDetalle'));
+
 // Rutas públicas o del usuario, así están mejor organizadas
 const publicRoutes = [
   { path: '/', element: <Home />, showNavbar: true },
   { path: '/login', element: <Login />, showNavbar: false },
   { path: '/create-user', element: <CreateUser />, showNavbar: false },
+  { path: '/vehiculo/:id', element: <VehiculoDetalle />, showNavbar: true },
 ];
 
 // Rutas del administrador 

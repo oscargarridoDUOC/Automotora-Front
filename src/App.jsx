@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation, matchPath } from 'react-router-dom';
 import { Suspense } from 'react';
 import { publicLinks } from './data/navbarPublicLinks';
 import { adminLinks } from './data/navbarAdminLinks';
@@ -9,7 +9,7 @@ function Layout() {
   const location = useLocation();
 
   const isAdminRoute = location.pathname.startsWith('/admin');
-  const currentRoute = appRoutes.find(route => route.path === location.pathname);
+  const currentRoute = appRoutes.find(route => matchPath(route.path, location.pathname));
   const showNavbar = isAdminRoute || currentRoute?.showNavbar;
 
   const navbarLinks = isAdminRoute ? adminLinks : publicLinks;
