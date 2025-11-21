@@ -26,21 +26,21 @@ const Home = () => {
 
     if (loading) {
         return (
-            <div className="min-h-screen flex items-center justify-center bg-zinc-50 dark:bg-black">
-                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-black dark:border-white"></div>
+            <div className="min-h-screen flex items-center justify-center bg-zinc-50">
+                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-black"></div>
             </div>
         );
     }
 
     return (
-        <div className="min-h-screen bg-zinc-50 dark:bg-black">
+        <div className="min-h-screen bg-zinc-50">
             <HeroSection />
 
             <main id="catalogo" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
                 <div className="flex justify-between items-end mb-12">
                     <div>
-                        <h2 className="text-3xl font-bold text-zinc-900 dark:text-white">Catálogo Disponible</h2>
-                        <p className="text-zinc-500 dark:text-zinc-400 mt-2">Explora nuestros últimos vehículos disponibles</p>
+                        <h2 className="text-3xl font-bold text-zinc-900">Catálogo Disponible</h2>
+                        <p className="text-zinc-500 mt-2">Explora nuestros últimos vehículos disponibles</p>
                     </div>
                     <div className="hidden md:flex gap-2">
                         {/* Filter buttons could go here */}

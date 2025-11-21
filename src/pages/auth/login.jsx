@@ -109,8 +109,8 @@ const Login = () => {
     });
 
     return (
-        <main className="flex min-h-screen items-center justify-center bg-zinc-50 dark:bg-black p-4">
-            <form onSubmit={handleSubmit} className="w-full max-w-md space-y-10 rounded-2xl bg-white dark:bg-zinc-900 p-10 shadow-xl border border-zinc-200 dark:border-zinc-800">
+        <main className="flex min-h-screen items-center justify-center bg-zinc-50  p-4">
+            <form onSubmit={handleSubmit} className="w-full max-w-md space-y-10 rounded-2xl bg-white 900 p-10 shadow-xl border border-zinc-200 800">
                 <Forms content={formDataWithHandlers} />
             </form>
         </main>

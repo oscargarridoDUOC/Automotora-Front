@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const VehicleCard = ({ vehicle }) => {
     return (
-        <div className="group relative bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-zinc-200 dark:border-zinc-800">
+        <div className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-zinc-200">
             <div className="aspect-[16/9] overflow-hidden">
                 <img
                     src={vehicle.imagenUrl}
@@ -14,19 +14,19 @@ const VehicleCard = ({ vehicle }) => {
             <div className="p-6">
                 <div className="flex justify-between items-start mb-4">
                     <div>
-                        <p className="text-sm font-medium text-zinc-500 dark:text-zinc-400 uppercase tracking-wider">
+                        <p className="text-sm font-medium text-zinc-500 uppercase tracking-wider">
                             {vehicle.marca.nombre}
                         </p>
-                        <h3 className="text-xl font-bold text-zinc-900 dark:text-white mt-1">
+                        <h3 className="text-xl font-bold text-zinc-900 mt-1">
                             {vehicle.modelo}
                         </h3>
                     </div>
-                    <span className="px-3 py-1 bg-zinc-100 dark:bg-zinc-800 rounded-full text-xs font-semibold text-zinc-900 dark:text-white">
+                    <span className="px-3 py-1 bg-zinc-100 rounded-full text-xs font-semibold text-zinc-900">
                         {vehicle.anio}
                     </span>
                 </div>
 
-                <div className="flex items-center gap-4 text-sm text-zinc-600 dark:text-zinc-400 mb-6">
+                <div className="flex items-center gap-4 text-sm text-zinc-600 mb-6">
                     <div className="flex items-center gap-1">
                         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -41,16 +41,16 @@ const VehicleCard = ({ vehicle }) => {
                     </div>
                 </div>
 
-                <div className="flex items-center justify-between pt-4 border-t border-zinc-100 dark:border-zinc-800">
-                    <div className="text-2xl font-bold text-zinc-900 dark:text-white">
+                <div className="flex items-center justify-between pt-4 border-t border-zinc-100">
+                    <div className="text-2xl font-bold text-zinc-900">
                         ${vehicle.precio.toLocaleString()}
                     </div>
-                    <Link to={`/vehiculo/${vehicle.id}`} className="px-4 py-2 bg-black dark:bg-white text-white dark:text-black rounded-lg font-medium hover:opacity-90 transition-opacity">
+                    <Link to={`/vehiculo/${vehicle.id}`} className="px-4 py-2 bg-black text-white rounded-lg font-medium hover:opacity-90 transition-opacity">
                         Ver Detalles
                     </Link>
                 </div>
-            </div>
-        </div>
+            </div >
+        </div >
     );
 };
 

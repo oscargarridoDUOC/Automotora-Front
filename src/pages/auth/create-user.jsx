@@ -56,7 +56,7 @@ const CreateUser = () => {
                 {
                     content: "Crear usuario",
                     variant: "h1",
-                    className: "text-center text-4xl font-bold mb-10 text-zinc-900 dark:text-white tracking-tight",
+                    className: "text-center text-4xl font-bold mb-10 text-zinc-900  tracking-tight",
                 }
             ]
         },
@@ -71,7 +71,7 @@ const CreateUser = () => {
                     onChange: handleChange,
                     required: true,
                     autoComplete: "off",
-                    className: "w-full border-b-2 border-zinc-300 dark:border-zinc-700 bg-transparent text-lg py-2 outline-none focus:border-black dark:focus:border-white transition-colors text-zinc-900 dark:text-white placeholder-zinc-400 mb-4",
+                    className: "w-full border-b-2 border-zinc-300 700 bg-transparent text-lg py-2 outline-none focus:border-black :border-white transition-colors text-zinc-900  placeholder-zinc-400 mb-4",
                 },
                 {
                     type: "text",
@@ -81,7 +81,7 @@ const CreateUser = () => {
                     onChange: handleChange,
                     required: true,
                     autoComplete: "off",
-                    className: "w-full border-b-2 border-zinc-300 dark:border-zinc-700 bg-transparent text-lg py-2 outline-none focus:border-black dark:focus:border-white transition-colors text-zinc-900 dark:text-white placeholder-zinc-400 mb-4",
+                    className: "w-full border-b-2 border-zinc-300 700 bg-transparent text-lg py-2 outline-none focus:border-black :border-white transition-colors text-zinc-900  placeholder-zinc-400 mb-4",
                 },
                 {
                     type: "email",
@@ -91,7 +91,7 @@ const CreateUser = () => {
                     onChange: handleChange,
                     required: true,
                     autoComplete: "off",
-                    className: "w-full border-b-2 border-zinc-300 dark:border-zinc-700 bg-transparent text-lg py-2 outline-none focus:border-black dark:focus:border-white transition-colors text-zinc-900 dark:text-white placeholder-zinc-400 mb-4",
+                    className: "w-full border-b-2 border-zinc-300 700 bg-transparent text-lg py-2 outline-none focus:border-black :border-white transition-colors text-zinc-900  placeholder-zinc-400 mb-4",
                 },
                 {
                     type: "password",
@@ -101,7 +101,7 @@ const CreateUser = () => {
                     onChange: handleChange,
                     required: true,
                     autoComplete: "current-password",
-                    className: "w-full border-b-2 border-zinc-300 dark:border-zinc-700 bg-transparent text-lg py-2 outline-none focus:border-black dark:focus:border-white transition-colors text-zinc-900 dark:text-white placeholder-zinc-400",
+                    className: "w-full border-b-2 border-zinc-300 700 bg-transparent text-lg py-2 outline-none focus:border-black :border-white transition-colors text-zinc-900  placeholder-zinc-400",
                 },
             ],
             className: "space-y-8"
@@ -110,7 +110,7 @@ const CreateUser = () => {
             type: "button",
             text: loading ? "Creando..." : "Crear usuario",
             disabled: loading,
-            className: "w-full mt-8 mb-4 py-4 bg-black dark:bg-white text-white dark:text-black rounded-full font-bold hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className: "w-full mt-8 mb-4 py-4 bg-black  text-white  rounded-full font-bold hover:bg-zinc-800 :bg-zinc-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         },
         {
             type: "text",
@@ -119,7 +119,7 @@ const CreateUser = () => {
                     content: (
                         <Link
                             to="/login"
-                            className="text-zinc-500 hover:text-black dark:hover:text-white underline transition-colors"
+                            className="text-zinc-500 hover:text-black :text-white underline transition-colors"
                         >
                             Ya tengo un usuario
                         </Link>
@@ -132,8 +132,8 @@ const CreateUser = () => {
     ];
     return (
         <>
-            <main className="flex min-h-screen items-center justify-center bg-zinc-50 dark:bg-black p-4">
-                <form onSubmit={handleSubmit} className="w-full max-w-md space-y-10 rounded-2xl bg-white dark:bg-zinc-900 p-10 shadow-xl border border-zinc-200 dark:border-zinc-800">
+            <main className="flex min-h-screen items-center justify-center bg-zinc-50  p-4">
+                <form onSubmit={handleSubmit} className="w-full max-w-md space-y-10 rounded-2xl bg-white 900 p-10 shadow-xl border border-zinc-200 800">
                     <Forms content={Login} />
                 </form>
             </main>
