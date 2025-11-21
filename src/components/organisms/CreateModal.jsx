@@ -5,7 +5,7 @@ import Button from '../atoms/Button';
 import InputFile from '../atoms/InputFile';
 import { uploadToImgBB } from '../../utils/uploadImage';
 
-function CreateModal({ isOpen, onClose, onSubmit, inputsConfig = [], title = "Crear nuevo", submitText = "Guardar", loading = false, initialData = {},}) {
+function CreateModal({ isOpen, onClose, onSubmit, inputsConfig = [], title = "Crear nuevo", submitText = "Guardar", loading = false, initialData = {}, }) {
     const [formData, setFormData] = useState(initialData);
     const [imagePreview, setImagePreview] = useState(null);
     const [uploadingImage, setUploadingImage] = useState(false);
@@ -113,9 +113,9 @@ function CreateModal({ isOpen, onClose, onSubmit, inputsConfig = [], title = "Cr
                             `}
                             disabled={loading || uploadingImage}
                         />
-                        <Button text="Cancelar" onClick={onClose} 
-                                className="flex-1 py-2.5 px-4 rounded-lg font-medium bg-gray-200 text-gray-700 hover:bg-gray-300 active:scale-95 transition-all"
-                                disabled={loading || uploadingImage}
+                        <Button text="Cancelar" onClick={onClose}
+                            className="flex-1 py-2.5 px-4 rounded-lg font-medium bg-gray-200 text-gray-700 hover:bg-gray-300 active:scale-95 transition-all"
+                            disabled={loading || uploadingImage}
                         />
                     </div>
                 </form>

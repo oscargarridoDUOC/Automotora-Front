@@ -1,7 +1,6 @@
-// src/components/atoms/InputFile.jsx
 import React from 'react';
 
-function InputFile({ onChange, accept = "image/*", className = "", disabled = false, preview = null,}) {
+function InputFile({ onChange, accept = "image/*", className = "", disabled = false, preview = null, }) {
     return (
         <div className={`space-y-3 ${className}`}>
             <div className="relative">

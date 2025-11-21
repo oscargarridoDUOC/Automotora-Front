@@ -7,7 +7,7 @@ function DynamicTexts({ Texts = [] }) {
             {Texts.map((text) => (
                 <Text key={text.id} variant={text.variant} className={text.className}>
                     {text.content}
-                </Text> 
+                </Text>
             ))}
         </>
     );

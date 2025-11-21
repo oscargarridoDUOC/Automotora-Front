@@ -32,8 +32,8 @@ function Section({ content = [], className = "p-4" }) {
         if (item.type === "table") {
           return (
             <div key={index} className={item.className || "my-6"}>
-              {item.title && ( 
-                <h3 className="text-xl font-bold mb-3 text-gray-800"> 
+              {item.title && (
+                <h3 className="text-xl font-bold mb-3 text-gray-800">
                   {item.title}
                 </h3>
               )}

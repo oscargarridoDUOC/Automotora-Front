@@ -63,23 +63,23 @@ function DynamicTable({ columns = [], data = [], className = '', striped = true,
                                         headerLower.includes('foto') ||
                                         headerLower.includes('avatar');
 
-                                        const shouldShowImage = isImageColumn && isImageUrl(cell);
-                                        
-                                        return (
-                                            <td key={cellIndex} className={`px-4 py-3 text-sm text-gray-900 align-top ${isImageColumn ? 'whitespace-normal' : 'whitespace-nowrap'} `}>
-                                                {shouldShowImage ? ( 
-                                                    <Image src={cell} alt={header} className="h-12 w-12 object-contain rounded-lg shadow-sm"
-                                                        onError={(e) => {
-                                                            e.target.style.display = 'none';
-                                                            e.target.nextSibling.style.display = 'block';
-                                                        }}
-                                                    />
-                                                ) : null}
-                                                <span className={shouldShowImage ? 'hidden' : ''}>
-                                                    {cell}
-                                                </span>
-                                            </td>
-                                        );
+                                    const shouldShowImage = isImageColumn && isImageUrl(cell);
+
+                                    return (
+                                        <td key={cellIndex} className={`px-4 py-3 text-sm text-gray-900 align-top ${isImageColumn ? 'whitespace-normal' : 'whitespace-nowrap'} `}>
+                                            {shouldShowImage ? (
+                                                <Image src={cell} alt={header} className="h-12 w-12 object-contain rounded-lg shadow-sm"
+                                                    onError={(e) => {
+                                                        e.target.style.display = 'none';
+                                                        e.target.nextSibling.style.display = 'block';
+                                                    }}
+                                                />
+                                            ) : null}
+                                            <span className={shouldShowImage ? 'hidden' : ''}>
+                                                {cell}
+                                            </span>
+                                        </td>
+                                    );
                                 })}
                             </tr>
                         );

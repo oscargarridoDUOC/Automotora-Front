@@ -8,7 +8,7 @@ class UserService {
         return axios.post(`${BASE_URL}/login`, usuario);
     }
 
-    createUser(usuario){
+    createUser(usuario) {
         return axios.post(`${BASE_URL}`, usuario);
     }
 }
