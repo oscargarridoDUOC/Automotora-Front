@@ -1,9 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Image from '../atoms/Image';
 import Text from '../atoms/Text';
 import Button from '../atoms/Button';
 
 const HeroSection = () => {
+    const navigate = useNavigate();
     return (
         <div className="relative bg-zinc-900 text-white py-24 overflow-hidden">
             <div className="absolute inset-0 opacity-20">
@@ -30,6 +32,7 @@ const HeroSection = () => {
                     />
                     <Button
                         text="Contáctanos"
+                        onClick={() => navigate('/contacto')}
                         className="border border-white/20 bg-white/10 backdrop-blur-sm hover:bg-white/20"
                     />
                 </div>

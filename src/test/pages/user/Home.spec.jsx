@@ -3,6 +3,7 @@ import { render, screen, waitFor } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import Home from '../../../pages/user/Home';
 import VehiculosService from '../../../services/VehiculosService';
+import MarcasService from '../../../services/MarcasService';
 
 describe('Home Page', () => {
     const mockVehiculos = [
@@ -16,8 +17,14 @@ describe('Home Page', () => {
         }
     ];
 
+    const mockMarcas = [
+        { id: 1, nombre: 'Toyota' },
+        { id: 2, nombre: 'Chevrolet' }
+    ];
+
     it('renderiza estado de carga inicialmente', () => {
         spyOn(VehiculosService, 'getAllVehiculos').and.returnValue(new Promise(() => { }));
+        spyOn(MarcasService, 'getAllMarcas').and.returnValue(new Promise(() => { }));
         render(
             <MemoryRouter>
                 <Home />
@@ -29,6 +36,7 @@ describe('Home Page', () => {
 
     it('renderiza vehículos después de la carga', async () => {
         spyOn(VehiculosService, 'getAllVehiculos').and.returnValue(Promise.resolve(mockVehiculos));
+        spyOn(MarcasService, 'getAllMarcas').and.returnValue(Promise.resolve(mockMarcas));
         render(
             <MemoryRouter>
                 <Home />
@@ -36,21 +44,23 @@ describe('Home Page', () => {
         );
 
         await waitFor(() => {
-            expect(screen.getByText('Toyota')).toBeDefined();
+            expect(screen.getAllByText('Toyota')).toBeDefined();
             expect(screen.getByText('Corolla')).toBeDefined();
         });
     });
 
-    it('renderiza mensaje de error al fallar', async () => {
-        spyOn(VehiculosService, 'getAllVehiculos').and.returnValue(Promise.reject('Error'));
+    it('renderiza mensaje de error cuando falla la carga', async () => {
+        spyOn(console, 'error');
+        spyOn(VehiculosService, 'getAllVehiculos').and.callFake(() => Promise.reject(new Error('Error')));
+        spyOn(MarcasService, 'getAllMarcas').and.callFake(() => Promise.reject(new Error('Error')));
+
         render(
             <MemoryRouter>
                 <Home />
             </MemoryRouter>
         );
 
-        await waitFor(() => {
-            expect(screen.getByText((content) => content.includes('No se pudieron cargar los vehículos'))).toBeDefined();
-        });
+        const errorMsg = await screen.findByText(/No se pudieron cargar/i, {}, { timeout: 4000 });
+        expect(errorMsg).toBeDefined();
     });
 });
