@@ -7,7 +7,6 @@ class VehiculosService {
     async getAllVehiculos() {
         try {
             const response = await axios.get(BASE_URL);
-            // Use backend image if available, otherwise use default
             return response.data.map(v => ({ ...v, imagenUrl: v.imagen || DEFAULT_IMAGE }));
         } catch (error) {
             console.error('Error fetching vehiculos:', error);

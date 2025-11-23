@@ -27,7 +27,6 @@ const MisReservas = () => {
 
         try {
             const data = await ReservasService.getReservasByUsuarioId(user.id);
-            // Ordenar por fecha de reserva (más recientes primero)
             const sortedData = data.sort((a, b) =>
                 new Date(b.fechaReserva) - new Date(a.fechaReserva)
             );
@@ -64,7 +63,6 @@ const MisReservas = () => {
 
     return (
         <div className="min-h-screen bg-zinc-50">
-            {/* Header */}
             <div className="bg-black text-white py-12">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <Text variant="h1" className="text-4xl font-bold mb-2">Mis Reservas</Text>
@@ -73,7 +71,6 @@ const MisReservas = () => {
             </div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-                {/* Stats Cards */}
                 <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
                     <div className="p-4 rounded-xl border-2 bg-white text-zinc-900 border-zinc-200">
                         <Text variant="p" className="text-2xl font-bold">{counts.total}</Text>
