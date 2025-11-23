@@ -12,6 +12,7 @@ const MarcasList = lazy(() => import('../pages/admin/Marcas/MarcasList'));
 const ConcesionariosList = lazy(() => import('../pages/admin/Concesionarios/ConcesionariosList'));
 const UsuariosList = lazy(() => import('../pages/admin/Usuarios/UsuariosList'));
 const ReservasList = lazy(() => import('../pages/admin/Reservas/ReservasList'));
+const ContactosList = lazy(() => import('../pages/admin/Contactos/ContactosList'));
 
 // User pages
 const VehiculoDetalle = lazy(() => import('../pages/user/VehiculoDetalle'));
@@ -19,7 +20,7 @@ const MisReservas = lazy(() => import('../pages/user/MisReservas'));
 const MiPerfil = lazy(() => import('../pages/user/MiPerfil'));
 const Contacto = lazy(() => import('../pages/user/Contacto'));
 
-// Rutas públicas o del usuario
+// Rutas públicas o del usuario, así están mejor organizadas
 const publicRoutes = [
   { path: '/', element: <Home />, showNavbar: true },
   { path: '/login', element: <Login />, showNavbar: false },
@@ -30,7 +31,7 @@ const publicRoutes = [
   { path: '/contacto', element: <Contacto />, showNavbar: true },
 ];
 
-// Rutas del administrador 
+// Rutas del administrador
 const adminRoutes = [
   { path: '/admin/dashboard', element: <HomeAdmin />, isAdmin: true },
   { path: '/admin/vehiculos', element: <VehiculosList />, isAdmin: true },
@@ -38,6 +39,7 @@ const adminRoutes = [
   { path: '/admin/concesionarios', element: <ConcesionariosList />, isAdmin: true },
   { path: '/admin/usuarios', element: <UsuariosList />, isAdmin: true },
   { path: '/admin/reservas', element: <ReservasList />, isAdmin: true },
+  { path: '/admin/contactos', element: <ContactosList />, isAdmin: true },
 ];
 
 // Ruta 404 por ahora no hice una página específica, solo un div simple (por ahora (puede cambiar (o eso creo)))
