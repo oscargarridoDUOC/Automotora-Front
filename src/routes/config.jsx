@@ -19,7 +19,7 @@ const MisReservas = lazy(() => import('../pages/user/MisReservas'));
 const MiPerfil = lazy(() => import('../pages/user/MiPerfil'));
 const Contacto = lazy(() => import('../pages/user/Contacto'));
 
-// Rutas públicas o del usuario, así están mejor organizadas
+// Rutas públicas o del usuario
 const publicRoutes = [
   { path: '/', element: <Home />, showNavbar: true },
   { path: '/login', element: <Login />, showNavbar: false },
