@@ -17,6 +17,7 @@ const ReservasList = lazy(() => import('../pages/admin/Reservas/ReservasList'));
 const VehiculoDetalle = lazy(() => import('../pages/user/VehiculoDetalle'));
 const MisReservas = lazy(() => import('../pages/user/MisReservas'));
 const MiPerfil = lazy(() => import('../pages/user/MiPerfil'));
+const Contacto = lazy(() => import('../pages/user/Contacto'));
 
 // Rutas públicas o del usuario, así están mejor organizadas
 const publicRoutes = [
@@ -26,6 +27,7 @@ const publicRoutes = [
   { path: '/vehiculo/:id', element: <VehiculoDetalle />, showNavbar: true },
   { path: '/mis-reservas', element: <MisReservas />, showNavbar: true },
   { path: '/mi-perfil', element: <MiPerfil />, showNavbar: true },
+  { path: '/contacto', element: <Contacto />, showNavbar: true },
 ];
 
 // Rutas del administrador 
