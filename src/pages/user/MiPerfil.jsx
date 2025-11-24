@@ -41,7 +41,6 @@ const MiPerfil = () => {
         return null;
     }
 
-    // Usamos fullUserData si está disponible, si no, usamos los datos básicos del contexto
     const displayUser = fullUserData || user;
 
     return (
@@ -74,7 +73,6 @@ const MiPerfil = () => {
                                         </div>
                                     </div>
 
-                                    {/* Correo */}
                                     <div>
                                         <label className="block text-sm font-medium text-zinc-500 mb-2">
                                             Correo Electrónico

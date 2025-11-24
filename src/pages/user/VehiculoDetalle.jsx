@@ -145,7 +145,7 @@ function VehiculoDetalle() {
                                 onClick={handleReservar}
                                 className="w-full py-4 bg-black text-white rounded-full font-bold text-lg hover:opacity-90 transition-opacity shadow-lg"
                             >
-                                🚗 Reservar Ahora
+                                Reservar Ahora
                             </Button>
                             <Text variant="p" className="text-xs text-zinc-500 text-center mt-3">
                                 Precio de reserva: $100,000

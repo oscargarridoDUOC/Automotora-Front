@@ -1,4 +1,3 @@
-// src/components/organisms/CreateModal.jsx
 import React, { useState, useEffect } from 'react';
 import DynamicInputs from '../molecules/DynamicInput';
 import Button from '../atoms/Button';
