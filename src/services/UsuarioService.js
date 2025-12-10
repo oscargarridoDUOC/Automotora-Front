@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from './axiosConfig';
 
 const BASE_URL = 'https://automotora-backend.onrender.com/api/v1/usuarios';
 

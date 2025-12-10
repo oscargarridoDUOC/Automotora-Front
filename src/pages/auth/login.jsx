@@ -28,21 +28,15 @@ const Login = () => {
 
         try {
             const response = await UsuarioService.login(form);
-            const usuario = response.data;
+            const { token, usuario } = response.data;
 
-            // GUARDA SOLO user (SIN token)
-            localStorage.setItem('user', JSON.stringify({
-                id: usuario.id,
-                nombre: usuario.nombre,
-                rol: usuario.rol
-            }));
-
-            // USA EL CONTEXTO
+            // USA EL CONTEXTO CON TOKEN
             login({
                 id: usuario.id,
                 nombre: usuario.nombre,
+                correo: usuario.correo,
                 rol: usuario.rol
-            });
+            }, token);
 
             generarMensaje(`¡Bienvenido ${usuario.nombre}!`, 'success');
 
